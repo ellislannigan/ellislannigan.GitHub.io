@@ -1,68 +1,105 @@
-/* Basic Reset */
-* {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-}
+<style>
 
-body {
-font-family: 'Open Sans', sans-serif;
-background-color: white; /* white */
-color: #4a4a4a; /* Dark gray text for readability */
-line-height: 1.6;
-padding: 20px;
-}
+    body {
 
-h1 {
-text-align: center;
-font-size: 2.5rem;
-color: #d85b8a; /* Dark pink */
-}
+      font-family: 'Open Sans', sans-serif;
 
-.container {
-width: 80%;
-margin: 0 auto;
-text-align: center;
-}
+      margin: 0;
 
-.navbar {
-text-align: center;
-padding: 15px;
-background-color: #ff69b4; /* Hot pink */
-color: white;
-font-size: 1.2rem;
-}
+      padding: 0;
 
-.navbar a {
-color: white;
-text-decoration: none;
-margin: 0;
-}
+      background-color: #ffffff;
 
-.navbar a:hover {
-text-decoration: underline;
-}
+      color: #333;
 
-footer {
-text-align: center;
-padding: 20px;
-background-color: #fce0e0; /* Light pink footer */
-color: white;
-position: fixed;
-width: 100%;
-bottom: 0;
-}
+    }
 
-p {
-font-size: 1.1rem;
-color: #4a4a4a;
-}
 
-a {
-color: #d85b8a; /* Dark pink links */
-text-decoration: none;
-}
 
-a:hover {
-color: #ff69b4; /* Hot pink on hover */
-}
+    header {
+
+      background-color: #6A0DAD;
+
+      color: white;
+
+      padding: 20px;
+
+      text-align: left;
+
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+    }
+
+
+
+    header h1 {
+
+      margin: 0;
+
+      font-size: 28px;
+
+    }
+
+
+
+    .container {
+
+      max-width: 900px;
+
+      margin: 40px auto;
+
+      padding: 0 20px;
+
+    }
+
+
+
+    h2 {
+
+      color: #6A0DAD;
+
+      font-size: 22px;
+
+      border-bottom: 2px solid #eee;
+
+      padding-bottom: 5px;
+
+    }
+
+
+
+    .project {
+
+      margin-bottom: 30px;
+
+    }
+
+
+
+    a {
+
+      color: #6A0DAD;
+
+      text-decoration: none;
+
+    }
+
+
+
+    footer {
+
+      background-color: #f4f4f4;
+
+      text-align: center;
+
+      padding: 15px;
+
+      margin-top: 40px;
+
+      font-size: 14px;
+
+      color: #888;
+
+    }
+
+  </style>
