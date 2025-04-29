@@ -182,5 +182,24 @@
   <p>More projects coming soon!</p>
 </footer>
 
+<script>
+// Open the modal
+function openModal(projectId) {
+    document.getElementById(projectId + '-modal').style.display = "flex";
+}
+
+// Close the modal
+function closeModal(projectId) {
+    document.getElementById(projectId + '-modal').style.display = "none";
+}
+
+// Close the modal when the user clicks outside of the modal
+window.onclick = function(event) {
+    if (event.target.className === "project-modal") {
+        document.getElementById(event.target.id).style.display = "none";
+    }
+}
+</script>
+  
 </body>
 </html>
