@@ -98,6 +98,27 @@
   
 </div>
 
+    <button id="dark-mode-toggle">Toggle Dark Mode</button>
+
+    <script>
+        const darkModeButton = document.getElementById('dark-mode-toggle');
+        const body = document.body;
+
+        if (localStorage.getItem('dark-mode') === 'enabled') {
+            body.classList.add('dark-mode');
+        }
+
+        darkModeButton.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('dark-mode', 'enabled');
+            } else {
+                localStorage.setItem('dark-mode', 'disabled');
+            }
+        });
+    </script>
+  
 <!-- Footer -->
 <footer>
 <p>&copy; 2025 Ellis Lannigan. All Rights Reserved.</p>
