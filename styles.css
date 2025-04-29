@@ -1,4 +1,4 @@
-<style>
+ <style>
 
     body {
 font-family: 'Lato', sans-serif;
@@ -155,7 +155,7 @@ body.dark-mode footer {
 }
 
 .project-card {
-    flex-basis: calc(33.333% - 40px); /* 3 cards per row with space for margins */
+    flex: 1 1 calc(33.333% - 40px); /* 3 cards per row with space for margins */
     margin: 20px; /* This margin is applied to the cards themselves */
     border: 1px solid #ddd;
     border-radius: 8px;
