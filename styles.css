@@ -21,6 +21,12 @@ margin: 0;
 font-size: 28px;
 }
 
+header p { 
+    text-align: centre;
+
+    .navbar {
+        text-align: centre;
+
 .container {
 max-width: 900px;
 margin: 40px auto;
