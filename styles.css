@@ -1,0 +1,68 @@
+/* Basic Reset */
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+font-family: 'Arial', sans-serif;
+background-color: #fce0e0; /* Soft light pink */
+color: #4a4a4a; /* Dark gray text for readability */
+line-height: 1.6;
+padding: 20px;
+}
+
+h1 {
+text-align: center;
+font-size: 2.5rem;
+color: #d85b8a; /* Dark pink */
+}
+
+.container {
+width: 80%;
+margin: 0 auto;
+text-align: center;
+}
+
+.navbar {
+text-align: center;
+padding: 15px;
+background-color: #ff69b4; /* Hot pink */
+color: white;
+font-size: 1.2rem;
+}
+
+.navbar a {
+color: white;
+text-decoration: none;
+margin: 0 20px;
+}
+
+.navbar a:hover {
+text-decoration: underline;
+}
+
+footer {
+text-align: center;
+padding: 20px;
+background-color: #ff69b4; /* Hot pink footer */
+color: white;
+position: fixed;
+width: 100%;
+bottom: 0;
+}
+
+p {
+font-size: 1.1rem;
+color: #4a4a4a;
+}
+
+a {
+color: #d85b8a; /* Dark pink links */
+text-decoration: none;
+}
+
+a:hover {
+color: #ff69b4; /* Hot pink on hover */
+}
