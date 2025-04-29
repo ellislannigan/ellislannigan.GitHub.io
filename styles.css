@@ -105,25 +105,52 @@ font-size: 14px;
 color: #888;
 }
 
+body {
+    transition: background-color 0.3s, color 0.3s;
+}
+
 body.dark-mode {
     background-color: #2e2e2e;
     color: white;
 }
 
+header {
+    background-color: #fff;
+    color: black;
+    padding: 20px;
+    text-align: center;
+}
+
+footer {
+    background-color: #f1f1f1;
+    color: black;
+    padding: 10px;
+    text-align: center;
+}
+
+body.dark-mode header {
+    background-color: #333;  /* Dark background for header */
+    color: white;  /* White text */
+}
+
+body.dark-mode footer {
+    background-color: #444;  /* Dark background for footer */
+    color: white;  /* White text */
+}
+
 #dark-mode-toggle {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  padding: 10px;
-  background-color: #444;
-  color: white;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px;
+    background-color: #444;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
 }
 
 #dark-mode-toggle:hover {
-  background-color: #666;
+    background-color: #666;
 }
-
 </style>
