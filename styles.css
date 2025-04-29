@@ -12,7 +12,7 @@ header {
 background-color: #A3B18A;
 color: white;
 padding: 20px;
-text-align: centre;
+text-align: center;
 box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
@@ -21,11 +21,48 @@ margin: 0;
 font-size: 28px;
 }
 
-header p { 
-    text-align: centre;
+header p {
+  margin: 5px 0 0;
+  font-size: 18px;
+}
 
-    .navbar {
-        text-align: centre;
+.navbar {
+  text-align: center;
+  background-color: #f2f2f2;
+  padding: 10px 0;
+  margin-top: -10px;
+}
+
+.navbar a {
+  position: relative;
+  margin: 0 15px;
+  color: #588157;
+  font-weight: bold;
+  text-decoration: none;
+  padding-bottom: 5px;
+  display: inline-block;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0%;
+  background-color: #3a5a40;
+  transition: width 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #3a5a40;
+  transform: scale(1.05);
+}
+
+.navbar a:hover::after {
+  width: 100%;
+}
 
 .container {
 max-width: 900px;
@@ -51,7 +88,7 @@ text-decoration: none;
 
 footer {
 background-color: #f4f4f4;
-text-align: centre;
+text-align: center;
 padding: 15px;
 margin-top: 40px;
 font-size: 14px;
