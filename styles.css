@@ -114,19 +114,18 @@ footer {
 }
 
 body.dark-mode {
-  background-color: var(--bg-color);
-  color: var(--text-color);
+  background-color: #2f2d3d;
+  color: #eee;
 }
 
 body.dark-mode .navbar {
-  background-color: var(--navbar-bg-dark, #3e3b4f); /* Add a dark mode variant for navbar */
-  color: white;
+  background-color: #3e3b4f;
 }
 
 body.dark-mode footer {
-  background-color: var(--footer-bg-dark, #3e3b4f); /* Dark mode footer background */
-  color: white;
+  background-color: #3e3b4f;
 }
+
 
 #dark-mode-toggle {
   position: fixed;
