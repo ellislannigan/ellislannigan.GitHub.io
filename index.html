@@ -89,23 +89,20 @@
   color: white;
   border: none;
   border-radius: 5px;
-  background: linear-gradient(45deg, #ff7e5f, #feb47b, #86a8e7, #91eae4);
+  background: linear-gradient(45deg, #91eae4, #86a8e7, #feb47b, #ff7e5f);
   background-size: 400% 400%;
-  animation: reverseGradientBG 15s ease infinite;
+  animation: reverseRainbowBG 15s ease infinite;
   transition: background 0.3s ease, transform 0.2s ease;
 }
 
-/* Optional: Add a nice hover bounce effect */
 #enter-btn:hover {
   transform: scale(1.05);
 }
 
-/* Reversed direction of the gradient */
-@keyframes reverseGradientBG {
+@keyframes reverseRainbowBG {
   0% { background-position: 100% 50%; }
   50% { background-position: 0% 50%; }
   100% { background-position: 100% 50%; }
-}
   </style>
 
 </head>
