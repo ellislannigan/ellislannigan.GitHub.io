@@ -209,6 +209,172 @@
       background-color: var(--secondary-accent);
     }
 
+     <!-- Internal CSS for the intro page and typing effect -->
+ <style>
+   /* Full-Screen Intro Page */
+   #intro-page {
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background: linear-gradient(
+       90deg,
+    #f7c1d1,  /* Soft Pink */
+    #f7e0a1,  /* Pale Yellow */
+    #a9d6c6,  /* Soft Mint */
+    #c6c6f5,  /* Light Lavender */
+    #f5d6c1,  /* Pale Peach */
+    #f1c1e3 
+     );
+     background-size: 1200% 1200%;
+     animation: fullRainbow 15s ease infinite;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+     z-index: 1000;
+     transition: opacity 0.5s ease;
+     opacity: 1;
+     padding: 20px;
+     box-sizing: border-box;
+     text-align: center;
+   }
+
+   @keyframes fullRainbow {
+     0% {
+       background-position: 0% 50%;
+     }
+     50% {
+       background-position: 100% 50%;
+     }
+     100% {
+       background-position: 0% 50%;
+     }
+   }
+
+   /* Hide main content initially */
+   #main-content {
+     display: none;
+   }
+
+   /* Typing effect container */
+   #welcome-text {
+     font-size: 2.5em;
+     font-family: 'Arial', sans-serif;
+     color: #fff; /* Text color for visibility */
+     text-align: center; /* Center the text */
+     white-space: nowrap;
+     overflow: hidden;
+     margin: 0;
+     display: inline-block;
+     width: 100%;
+   }
+
+   /* The typing effect span */
+   #typed-text {
+     display: inline-block;
+     white-space: nowrap; /* Ensure the text doesn’t wrap */
+   }
+
+   /* Text below typing */
+   #sub-text {
+     font-size: 1.5em;
+     font-family: 'Arial', sans-serif;
+     color: #fff;
+     margin-top: 10px;
+   }
+
+   #enter-btn {
+     margin-top: 20px;
+     padding: 15px 30px;
+     font-size: 1.2em;
+     cursor: pointer;
+     color: white;
+     border: none;
+     border-radius: 5px;
+     background: linear-gradient(
+       270deg,
+       #f1c1e3,
+       #f5d6c1, 
+       #c6c6f5,
+      #a9d6c6,
+       #f7e0a1 
+     );
+     background-size: 1200% 1200%;
+     animation: reverseFullRainbow 15s ease infinite;
+     transition: background 0.3s ease, transform 0.2s ease;
+   }
+
+   #enter-btn:hover {
+     transform: scale(1.05);
+   }
+
+   @keyframes reverseFullRainbow {
+     0% {
+       background-position: 100% 50%;
+     }
+     50% {
+       background-position: 0% 50%;
+     }
+     100% {
+       background-position: 100% 50%;
+     }
+   }
+ </style>
+
+ <!-- Intro Page -->
+ <div id="intro-page">
+   <div id="welcome-text">
+     <span id="typed-text"></span> <!-- Wrap the typed text in a span -->
+   </div>
+   <div id="sub-text">
+     Welcome to my portfolio!
+   </div>
+   <button id="enter-btn">Enter</button>
+ </div>
+
+ <!-- Main Content (hidden initially) -->
+ <div id="main-content">
+   <h1>Welcome to my Portfolio!</h1>
+   <p>Explore my projects, skills, and more.</p>
+ </div>
+
+ <!-- Confetti JS Library -->
+ <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+ <!-- JavaScript for the typing effect and transition -->
+ <script>
+   // Typing effect for the intro page
+   document.addEventListener('DOMContentLoaded', function () {
+     const welcomeText = "Hi, I'm Ellis!";
+     let index = 0;
+     
+     // Function to type the text
+     function typeText() {
+       if (index < welcomeText.length) {
+         document.getElementById('typed-text').innerHTML += welcomeText.charAt(index);
+         index++;
+         setTimeout(typeText, 150); // Speed of typing
+       }
+     }
+     
+     // Start typing animation
+     typeText();
+
+     // Button click to transition
+     document.getElementById('enter-btn').addEventListener('click', function() {
+       confetti(); // Trigger confetti animation
+       const introPage = document.getElementById('intro-page');
+       introPage.style.opacity = 0; // Fade out the intro page
+       setTimeout(function() {
+         introPage.style.display = 'none'; // Hide the intro page
+         document.getElementById('main-content').style.display = 'block'; // Show the main content
+       }, 500); // Match fade-out time
+     });
+   });
+ </script>
+
     /* Responsive */
     @media (max-width: 768px) {
       .project-container {
