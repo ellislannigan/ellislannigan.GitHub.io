@@ -284,4 +284,25 @@ body.dark-mode footer {
   }
 }
 
+* Simple confetti effect */
+.confetti {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: url('https://www.gstatic.com/webp/gallery/1.sm.jpg') no-repeat center center;
+  background-size: cover;
+  animation: confettiFall 3s ease-out forwards;
+}
 
+@keyframes confettiFall {
+  from {
+    transform: translateY(-100%);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
