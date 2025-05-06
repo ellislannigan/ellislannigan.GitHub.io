@@ -209,39 +209,3 @@ body.dark-mode footer {
     align-items: center;
   }
 }
-
-/* Ensure the Easter egg is initially hidden */
-#easter-egg {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);  /* Center the pop-up */
-  visibility: hidden;  /* Initially hidden */
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  z-index: 1000;
-  opacity: 0;  /* Start with opacity 0 for smooth fade-in */
-  transition: opacity 0.5s ease;  /* Smooth fade-in effect */
-}
-
-/* Show the Easter egg with animation */
-#easter-egg.show {
-  visibility: visible;
-  opacity: 1;  /* Fade in by changing opacity */
-}
-
-/* Button styling */
-.btn {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.btn:hover {
-  background-color: #0056b3;
