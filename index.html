@@ -18,6 +18,15 @@
 </head>
 <body>
 
+<!-- Intro Page (Covering the whole screen initially) -->
+  <div id="intro-page">
+    <div id="intro-content">
+      <h1 id="welcome-text"></h1> <!-- Typing animation will appear here -->
+      <p>Welcome to my portfolio. I'm a data enthusiast with a passion for solving real-world problems with data.</p>
+      <button id="enter-btn" class="btn">Enter</button> <!-- Button to proceed to main content -->
+    </div>
+  </div>
+  
   </head>
 <body>
 <header>
@@ -210,5 +219,39 @@ window.onclick = function(event) {
     }
 }
 </script>
+  
+<!-- Inline JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Set up the typing animation text
+      const welcomeText = "Hi, I'm Ellis!";
+      let index = 0;
+      
+      // Typing effect function
+      function typeText() {
+        if (index < welcomeText.length) {
+          document.getElementById('welcome-text').innerHTML += welcomeText.charAt(index);
+          index++;
+          setTimeout(typeText, 100); // Adjust speed of typing here
+        }
+      }
+
+      // Start the typing animation
+      typeText();
+
+      // Button click event
+      document.getElementById('enter-btn').addEventListener('click', function() {
+        // Fade out the intro page
+        document.getElementById('intro-page').style.opacity = 0;
+
+        // After the fade out, hide the intro page and show the main content
+        setTimeout(function() {
+          document.getElementById('intro-page').style.display = 'none';
+          document.getElementById('main-content').style.display = 'block';
+        }, 500); // Match this time with your fade-out transition
+      });
+    });
+  </script>
+  
 </body>
 </html>
