@@ -22,23 +22,32 @@
   <style>
     /* Full-Screen Intro Page */
     #intro-page {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to right, #ff7e5f, #feb47b); /* Rainbow gradient */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      z-index: 1000;
-      transition: opacity 0.5s ease;
-      opacity: 1;
-      padding: 20px;
-      box-sizing: border-box;
-      text-align: center; /* Ensures all text is centered */
-    }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(-45deg, #ff7e5f, #feb47b, #86a8e7, #91eae4);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 1000;
+  transition: opacity 0.5s ease;
+  opacity: 1;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* Animated gradient keyframes */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
     /* Hide main content initially */
     #main-content {
@@ -124,7 +133,7 @@
         if (index < welcomeText.length) {
           document.getElementById('typed-text').innerHTML += welcomeText.charAt(index);
           index++;
-          setTimeout(typeText, 100); // Speed of typing
+          setTimeout(typeText, 150); // Speed of typing
         }
       }
       
