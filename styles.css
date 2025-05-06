@@ -17,7 +17,7 @@ body {
 }
 
 header {
-  background-color: var(--main-accent);
+   background-color: #c9b6d9; /* Direct color instead of --main-accent */
   color: white;
   padding: 20px;
   text-align: center;
