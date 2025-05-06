@@ -18,6 +18,11 @@
 </head>
 <body>
 
+<!-- Confetti.js Library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+  
 <!-- Intro Page (Covering the whole screen initially) -->
   <div id="intro-page">
     <div id="intro-content">
@@ -239,8 +244,11 @@ window.onclick = function(event) {
       // Start the typing animation
       typeText();
 
-      // Button click event
+      // Button click event to trigger confetti and transition to main content
       document.getElementById('enter-btn').addEventListener('click', function() {
+        // Trigger confetti animation
+        confetti();
+
         // Fade out the intro page
         document.getElementById('intro-page').style.opacity = 0;
 
