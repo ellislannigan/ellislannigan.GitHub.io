@@ -81,21 +81,31 @@
       margin-top: 10px;
     }
 
-    /* Button styling */
     #enter-btn {
-      margin-top: 20px;
-      padding: 15px 30px;
-      font-size: 1.2em;
-      cursor: pointer;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 5px;
-    }
+  margin-top: 20px;
+  padding: 15px 30px;
+  font-size: 1.2em;
+  cursor: pointer;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  background: linear-gradient(45deg, #ff7e5f, #feb47b, #86a8e7, #91eae4);
+  background-size: 400% 400%;
+  animation: reverseGradientBG 15s ease infinite;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
 
-    #enter-btn:hover {
-      background-color: #0056b3;
-    }
+/* Optional: Add a nice hover bounce effect */
+#enter-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Reversed direction of the gradient */
+@keyframes reverseGradientBG {
+  0% { background-position: 100% 50%; }
+  50% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
   </style>
 
 </head>
