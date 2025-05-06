@@ -18,7 +18,8 @@
 </head>
 <body>
 
-<style>
+!-- CSS for the intro page and typing effect -->
+  <style>
     /* Full-Screen Intro Page */
     #intro-page {
       position: fixed;
@@ -42,22 +43,21 @@
     }
 
     /* Typing effect container */
-#welcome-text {
-  font-size: 2em;
-  font-family: 'Arial', sans-serif;
-  color: #333;
-  text-align: left;  /* Keep text left-aligned or change to 'center' if you want */
-  white-space: nowrap;  /* Prevent text from wrapping */
-  width: 100%;  /* Prevent the container from expanding */
-  display: block;  /* Ensure it takes up the full width */
-  overflow: hidden;  /* Hide anything that overflows while typing */
-}
+    #welcome-text {
+      font-size: 2em;
+      font-family: 'Arial', sans-serif;
+      color: #333;
+      text-align: center;  /* Center text */
+      white-space: nowrap;  /* Prevent text from wrapping */
+      width: 100%;  /* Prevent the container from expanding */
+      overflow: hidden;  /* Hide anything that overflows while typing */
+    }
 
-  /* The typing effect animation */
-#typed-text {
-  display: inline-block;
-  white-space: nowrap; /* Ensure the text doesn’t wrap */
-}
+    /* The typing effect animation */
+    #typed-text {
+      display: inline-block;
+      white-space: nowrap; /* Ensure the text doesn’t wrap */
+    }
 
     /* Button styling */
     #enter-btn {
@@ -80,30 +80,32 @@
 
   <!-- Intro Page -->
   <div id="intro-page">
-    <div id="welcome-text">Hi, I'm Ellis!</div>
-     <span id="typed-text"></span> <!-- Wrap the typed text in a span -->
-  </div>
+    <div id="welcome-text">
+      <span id="typed-text"></span> <!-- Wrap the typed text in a span -->
+    </div>
     <button id="enter-btn">Enter</button>
   </div>
 
   <!-- Main Content (hidden initially) -->
   <div id="main-content">
-    <!-- Your main website content goes here -->
     <h1>Welcome to my Portfolio!</h1>
     <p>Explore my projects, skills, and more.</p>
   </div>
 
+  <!-- Confetti JS Library -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
+  <!-- JavaScript for the typing effect and transition -->
   <script>
     // Typing effect for the intro page
     document.addEventListener('DOMContentLoaded', function () {
       const welcomeText = "Hi, I'm Ellis!";
       let index = 0;
       
+      // Function to type the text
       function typeText() {
         if (index < welcomeText.length) {
-          document.getElementById('welcome-text').innerHTML += welcomeText.charAt(index);
+          document.getElementById('typed-text').innerHTML += welcomeText.charAt(index);
           index++;
           setTimeout(typeText, 100); // Speed of typing
         }
@@ -114,7 +116,7 @@
 
       // Button click to transition
       document.getElementById('enter-btn').addEventListener('click', function() {
-        confetti(); // Trigger confetti
+        confetti(); // Trigger confetti animation
         const introPage = document.getElementById('intro-page');
         introPage.style.opacity = 0; // Fade out the intro page
         setTimeout(function() {
