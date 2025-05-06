@@ -47,16 +47,25 @@
       font-size: 2em;
       font-family: 'Arial', sans-serif;
       color: #333;
-      text-align: center;  /* Center text */
+      text-align: left;  /* Keep text left-aligned */
       white-space: nowrap;  /* Prevent text from wrapping */
       width: 100%;  /* Prevent the container from expanding */
       overflow: hidden;  /* Hide anything that overflows while typing */
+      margin: 0;
     }
 
-    /* The typing effect animation */
+    /* Typing effect span */
     #typed-text {
       display: inline-block;
       white-space: nowrap; /* Ensure the text doesn’t wrap */
+    }
+
+    /* Text below typing */
+    #sub-text {
+      font-size: 1.5em;
+      font-family: 'Arial', sans-serif;
+      color: #555;
+      margin-top: 10px;
     }
 
     /* Button styling */
@@ -82,6 +91,9 @@
   <div id="intro-page">
     <div id="welcome-text">
       <span id="typed-text"></span> <!-- Wrap the typed text in a span -->
+    </div>
+    <div id="sub-text">
+      Welcome to my portfolio!
     </div>
     <button id="enter-btn">Enter</button>
   </div>
@@ -126,6 +138,7 @@
       });
     });
   </script>
+
   
   </head>
 <body>
