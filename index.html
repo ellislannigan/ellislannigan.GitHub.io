@@ -222,33 +222,34 @@ window.onclick = function(event) {
 
   <script>
     window.addEventListener('load', () => {
-      // After page load, show the hidden Easter egg with animation
-      setTimeout(() => {
-        document.getElementById('easter-egg').classList.remove('hidden');
-      }, 2000);  // Show the surprise 2 seconds after the page has loaded
+  // After page load, show the hidden Easter egg with animation
+  setTimeout(() => {
+    // Add the 'show' class to make the Easter egg visible
+    document.getElementById('easter-egg').classList.add('show');
+  }, 2000);  // Show the surprise 2 seconds after the page has loaded
 
-      // Array of fun facts
-      const facts = [
-        "The average person generates about 1.7MB of data per second!",
-        "Did you know? The world's largest dataset has over 13 terabytes of data!",
-        "In 2017, the total amount of data generated worldwide exceeded 33 zettabytes.",
-        "Data science is the fastest-growing field in tech right now. 📈",
-        "A single gigabyte of data is enough to hold over 1000 high-resolution photos!"
-      ];
+  // Array of fun facts
+  const facts = [
+    "The average person generates about 1.7MB of data per second!",
+    "Did you know? The world's largest dataset has over 13 terabytes of data!",
+    "In 2017, the total amount of data generated worldwide exceeded 33 zettabytes.",
+    "Data science is the fastest-growing field in tech right now. 📈",
+    "A single gigabyte of data is enough to hold over 1000 high-resolution photos!"
+  ];
 
-      // Show more facts when "Show More" button is clicked
-      document.getElementById('show-more-btn').addEventListener('click', () => {
-        const factContainer = document.createElement('div');
-        const randomFact = facts[Math.floor(Math.random() * facts.length)];
-        factContainer.innerHTML = `<p><strong>Did you know?</strong> ${randomFact}</p>`;
-        document.querySelector('.message').appendChild(factContainer);
-      });
+  // Show more facts when "Show More" button is clicked
+  document.getElementById('show-more-btn').addEventListener('click', () => {
+    const factContainer = document.createElement('div');
+    const randomFact = facts[Math.floor(Math.random() * facts.length)];
+    factContainer.innerHTML = `<p><strong>Did you know?</strong> ${randomFact}</p>`;
+    document.querySelector('.message').appendChild(factContainer);
+  });
 
-      // Close the Easter egg
-      document.getElementById('close-btn').addEventListener('click', () => {
-        document.getElementById('easter-egg').classList.add('hidden');
-      });
-    });
+  // Close the Easter egg
+  document.getElementById('close-btn').addEventListener('click', () => {
+    document.getElementById('easter-egg').classList.remove('show');
+  });
+});
   </script>
 </body>
 </html>
