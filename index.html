@@ -1,519 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z8Y7HG0XCX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ellis' Portfolio</title>
   <style>
     :root {
-      --main-accent: #c9b6d9;       /* soft lavender */
-      --secondary-accent: #f2c9ac;  /* peach-pearl */
-      --text-color: #333;
-      --bg-color: #fdfaf6;
-      --navbar-bg: #fcefe3;
-      --footer-bg: #f4f4f4;
-      --toggle-bg: #444;
-      --toggle-bg-hover: #666;
-      
-      --navbar-bg-dark: #3e3b4f; /* Dark mode navbar background */
-      --footer-bg-dark: #3e3b4f; /* Dark mode footer background */
-      --bg-color-dark: #2f2d3d;  /* Dark mode background */
-      --text-color-dark: #eee;   /* Dark mode text color */
+      --pastel-pink: #f8cdda;
+      --pastel-blue: #cddaf8;
+      --pastel-green: #daf8cd;
+      --text-dark: #333;
+      --text-light: #f9f9f9;
     }
 
     body {
-      font-family: 'Poppins', 'Lato', sans-serif;
       margin: 0;
-      padding: 0;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      transition: background-color 0.3s, color 0.3s;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--pastel-blue);
+      color: var(--text-dark);
+      transition: background 0.3s ease;
     }
 
-    header {
-      background-color: var(--main-accent);
-      color: white;
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 28px;
-    }
-
-    header p {
-      margin: 5px 0 0;
-      font-size: 18px;
-    }
-
-    .navbar {
-      text-align: center;
-      background-color: var(--navbar-bg);
-      padding: 10px 0;
-      margin-top: -10px;
-    }
-
-    .navbar a {
-      position: relative;
-      margin: 0 15px;
-      color: var(--main-accent);
-      font-weight: bold;
-      text-decoration: none;
-      padding-bottom: 5px;
-      display: inline-block;
-      transition: color 0.3s ease, transform 0.3s ease;
-    }
-
-    .navbar a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      height: 2px;
-      width: 0%;
-      background-color: var(--secondary-accent);
-      transition: width 0.3s ease;
-    }
-
-    .navbar a:hover {
-      color: var(--secondary-accent);
-      transform: scale(1.05);
-    }
-
-    .navbar a:hover::after {
-      width: 100%;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-
-    h2 {
-      color: var(--main-accent);
-      font-size: 22px;
-      border-bottom: 2px solid #eee;
-      padding-bottom: 5px;
-    }
-
-    a {
-      color: var(--main-accent);
-      text-decoration: none;
-      font-size: 1rem;
-    }
-
-    footer {
-      background-color: var(--footer-bg);
-      text-align: center;
-      padding: 15px;
-      margin-top: 40px;
-      font-size: 14px;
-      color: #888;
-    }
-
-    body.dark-mode {
-      background-color: var(--bg-color-dark);
-      color: var(--text-color-dark);
-    }
-
-    body.dark-mode .navbar {
-      background-color: var(--navbar-bg-dark);
-    }
-
-    body.dark-mode footer {
-      background-color: var(--footer-bg-dark);
-    }
-
-    #dark-mode-toggle {
+    .intro {
       position: fixed;
-      top: 20px;
-      right: 20px;
-      padding: 10px;
-      background-color: var(--toggle-bg);
-      color: white;
-      border: none;
-      cursor: pointer;
-      font-size: 16px;
-    }
-
-    #dark-mode-toggle:hover {
-      background-color: var(--toggle-bg-hover);
-    }
-
-    /* Projects Section */
-    #projects {
-      text-align: center;
-      padding: 50px;
-    }
-
-    .project-container {
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: var(--pastel-pink);
       display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 20px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
     }
 
-    .project-card {
-      flex: 1 1 calc(33.333% - 40px);
-      margin: 20px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
+    .typing {
+      font-size: 2.5rem;
+      white-space: nowrap;
       overflow: hidden;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-      transition: transform 0.3s ease;
+      border-right: .15em solid var(--text-dark);
+      animation: typing 2.5s steps(20, end), blink .75s step-end infinite;
     }
 
-    .project-card:hover {
-      transform: translateY(-10px);
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 13ch }
     }
 
-    .project-img {
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
+    @keyframes blink {
+      from, to { border-color: transparent }
+      50% { border-color: var(--text-dark); }
     }
 
-    .project-info {
-      padding: 20px;
-    }
-
-    .project-info h3 {
-      margin-top: 0;
-      font-size: 1.2rem;
-      color: var(--main-accent);
-    }
-
-    .project-info p {
-      font-size: 0.9rem;
-      color: #555;
-    }
-
-    .project-btn {
+    .subtitle {
       margin-top: 10px;
-      padding: 8px 16px;
-      background-color: var(--main-accent);
-      color: white;
+      font-size: 1.2rem;
+      color: var(--text-dark);
+    }
+
+    .enter-button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: white;
+      color: var(--pastel-pink);
       border: none;
-      border-radius: 5px;
+      border-radius: 10px;
+      font-size: 1rem;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+      transition: background 0.3s;
     }
 
-    .project-btn:hover {
-      background-color: var(--secondary-accent);
+    .enter-button:hover {
+      background: #fff0f5;
     }
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      .project-container {
-        flex-direction: column;
-        align-items: center;
-      }
+    .main-content {
+      display: none;
+      padding: 2rem;
+    }
+
+    h1, h2, h3 {
+      color: var(--text-dark);
+    }
+
+    .now-section button {
+      margin-top: 1rem;
+      background: var(--pastel-green);
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .log-entries {
+      display: none;
+      margin-top: 1rem;
+      padding-left: 1rem;
     }
   </style>
-
-   <!-- Internal CSS for the intro page and typing effect -->
- <style>
-   /* Full-Screen Intro Page */
-   #intro-page {
-     position: fixed;
-     top: 0;
-     left: 0;
-     width: 100%;
-     height: 100%;
-     background: linear-gradient(
-       90deg,
-    #f7c1d1,  /* Soft Pink */
-    #f7e0a1,  /* Pale Yellow */
-    #a9d6c6,  /* Soft Mint */
-    #c6c6f5,  /* Light Lavender */
-    #f5d6c1,  /* Pale Peach */
-    #f1c1e3 
-     );
-     background-size: 1200% 1200%;
-     animation: fullRainbow 15s ease infinite;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     flex-direction: column;
-     z-index: 1000;
-     transition: opacity 0.5s ease;
-     opacity: 1;
-     padding: 20px;
-     box-sizing: border-box;
-     text-align: center;
-   }
-
-   @keyframes fullRainbow {
-     0% {
-       background-position: 0% 50%;
-     }
-     50% {
-       background-position: 100% 50%;
-     }
-     100% {
-       background-position: 0% 50%;
-     }
-   }
-
-   /* Hide main content initially */
-   #main-content {
-     display: none;
-   }
-
-   /* Typing effect container */
-   #welcome-text {
-     font-size: 2.5em;
-     font-family: 'Arial', sans-serif;
-     color: #fff; /* Text color for visibility */
-     text-align: center; /* Center the text */
-     white-space: nowrap;
-     overflow: hidden;
-     margin: 0;
-     display: inline-block;
-     width: 100%;
-   }
-
-   /* The typing effect span */
-   #typed-text {
-     display: inline-block;
-     white-space: nowrap; /* Ensure the text doesn’t wrap */
-   }
-
-   /* Text below typing */
-   #sub-text {
-     font-size: 1.5em;
-     font-family: 'Arial', sans-serif;
-     color: #fff;
-     margin-top: 10px;
-   }
-
-   #enter-btn {
-     margin-top: 20px;
-     padding: 15px 30px;
-     font-size: 1.2em;
-     cursor: pointer;
-     color: white;
-     border: none;
-     border-radius: 5px;
-     background: linear-gradient(
-       270deg,
-       #f1c1e3,
-       #f5d6c1, 
-       #c6c6f5,
-      #a9d6c6,
-       #f7e0a1 
-     );
-     background-size: 1200% 1200%;
-     animation: reverseFullRainbow 15s ease infinite;
-     transition: background 0.3s ease, transform 0.2s ease;
-   }
-
-   #enter-btn:hover {
-     transform: scale(1.05);
-   }
-
-   @keyframes reverseFullRainbow {
-     0% {
-       background-position: 100% 50%;
-     }
-     50% {
-       background-position: 0% 50%;
-     }
-     100% {
-       background-position: 100% 50%;
-     }
-   }
- </style>
-
- <!-- Intro Page -->
- <div id="intro-page">
-   <div id="welcome-text">
-     <span id="typed-text"></span> <!-- Wrap the typed text in a span -->
-   </div>
-   <div id="sub-text">
-     Welcome to my portfolio!
-   </div>
-   <button id="enter-btn">Enter</button>
- </div>
-
- <!-- Main Content (hidden initially) -->
- <div id="main-content">
-   <h1>Welcome to my Portfolio!</h1>
-   <p>Explore my projects, skills, and more.</p>
- </div>
-
- <!-- Confetti JS Library -->
- <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-
- <!-- JavaScript for the typing effect and transition -->
- <script>
-   // Typing effect for the intro page
-   document.addEventListener('DOMContentLoaded', function () {
-     const welcomeText = "Hi, I'm Ellis!";
-     let index = 0;
-     
-     // Function to type the text
-     function typeText() {
-       if (index < welcomeText.length) {
-         document.getElementById('typed-text').innerHTML += welcomeText.charAt(index);
-         index++;
-         setTimeout(typeText, 150); // Speed of typing
-       }
-     }
-     
-     // Start typing animation
-     typeText();
-
-     // Button click to transition
-     document.getElementById('enter-btn').addEventListener('click', function() {
-       confetti(); // Trigger confetti animation
-       const introPage = document.getElementById('intro-page');
-       introPage.style.opacity = 0; // Fade out the intro page
-       setTimeout(function() {
-         introPage.style.display = 'none'; // Hide the intro page
-         document.getElementById('main-content').style.display = 'block'; // Show the main content
-       }, 500); // Match fade-out time
-     });
-   });
- </script>
-
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ellis Lannigan | Data Analyst Portfolio</title>
 </head>
 <body>
-
-  <!-- Intro Page -->
-  <div id="intro-page">
-    <div id="welcome-text">
-      <span id="typed-text"></span>
-    </div>
-    <div id="sub-text">
-      Welcome to my portfolio!
-    </div>
-    <button id="enter-btn">Enter</button>
+  <div class="intro" id="intro">
+    <div class="typing">Hi, I'm Ellis!</div>
+    <div class="subtitle">Welcome to my portfolio</div>
+    <button class="enter-button" onclick="enterSite()">Enter</button>
   </div>
 
-  <!-- Navbar -->
-  <div class="navbar">
-    <a href="#about">About Me</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#now">Now</a>
-    <a href="#contact">Contact</a>
-  </div>
-
-  <!-- Welcome Section -->
-  <div class="container">
-    <h1>Welcome to My Portfolio</h1>
-    <p>Hi, I'm Ellis Lannigan, a First Class Mathematics graduate and a future data analyst. Here you'll find my projects and experience.</p>
-  </div>
-
-  <!-- About Me Section -->
-  <div class="container" id="about">
-    <h2>About Me</h2>
-    <p>Hi, I'm a data enthusiast with a passion for extracting meaningful insights from data. With a background in mathematics and experience in data analysis, I strive to create impactful, data-driven solutions that solve real-world problems.</p>
-    <p>My areas of expertise include statistical analysis, machine learning, data visualization, and data wrangling. I have experience working with a variety of tools and technologies, and I’m always eager to learn more!</p>
-    <p>When I'm not working on data projects, I enjoy exploring new technologies, hiking, and reading about behavioral economics.</p>
-  </div>
-
-  <!-- Skills Section -->
-  <div class="container" id="skills">
-    <h2>Skills</h2>
-    <ul>
-      <li>Data Analysis & Visualization</li>
-      <li>Machine Learning (Regression, Classification, Clustering)</li>
-      <li>Python (Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn)</li>
-      <li>SQL</li>
-      <li>Statistics & Hypothesis Testing</li>
-      <li>Excel & Google Sheets</li>
-      <li>Tableau & Power BI</li>
-    </ul>
-  </div>
-
-  <!-- Projects Section -->
-  <div class="container" id="projects">
-    <h2>My Projects</h2>
-    <p>Here are a few projects that showcase my skills in data analysis:</p>
-    <div class="project-container">
-      <!-- Project 1: GDP vs Happiness Analysis -->
-      <div class="project-card">
-        <img src="wb_happy-children.jpg" alt="Project 1 Thumbnail" class="project-img">
-        <div class="project-info">
-          <h3>GDP vs Happiness Analysis</h3>
-          <p>This project analyzes the relationship between GDP and happiness levels across various countries. The analysis explores how economic factors correlate with subjective well-being and aims to provide insights into what truly contributes to happiness.</p>
-          <p><strong>Tools Used:</strong> Python, Pandas, Matplotlib, Seaborn, Jupyter Notebook</p>
-          <p><strong>Key Insights:</strong> The analysis revealed that while wealthier countries tend to report higher happiness scores, there is a diminishing return beyond a certain GDP threshold.</p>
-          <a href="gdp-happiness.pdf" target="_blank">
-            <button class="project-btn">View Report (PDF)</button>
-          </a>
-        </div>
+  <div class="main-content" id="main">
+    <h1>Welcome to my portfolio</h1>
+    <section class="now-section">
+      <h2>What I'm focusing on now</h2>
+      <p>Learning React and building personal projects.</p>
+      <button onclick="toggleLogs()">Show previous entries</button>
+      <div class="log-entries" id="logEntries">
+        <h3>April</h3>
+        <p>Improved portfolio design and added intro screen.</p>
+        <h3>March</h3>
+        <p>Explored data analytics and built dashboards in Tableau.</p>
       </div>
-    </div>
+    </section>
+
+    <section>
+      <h2>Projects</h2>
+      <ul>
+        <li>Data Analytics Portfolio</li>
+        <li>Restaurant Management App</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <p>Email: ellis@example.com</p>
+    </section>
   </div>
-
-  <!-- Now Section -->
-  <div class="container" id="now">
-    <h2>What I'm Focusing On Now</h2>
-    <p>Here’s what I’m currently learning, exploring, and working on. I update this page regularly to reflect my evolving focus and journey as a data analyst.</p>
-    <h3>🗓️ May 2025</h3>
-    <ul>
-      <li>Practicing SQL and data wrangling using sample datasets (e.g., Airbnb, HR analytics).</li>
-      <li>Learning data visualization principles — experimenting with Tableau and Matplotlib.</li>
-      <li>Applying for entry-level data analyst roles and internships.</li>
-      <li>Reading: *Storytelling with Data* by Cole Nussbaumer Knaflic.</li>
-      <li>Reviewing job descriptions to identify skill gaps.</li>
-    </ul>
-  </div>
-
-  <!-- Contact Section -->
-  <div class="container" id="contact">
-    <h2>Contact Me</h2>
-    <p>Feel free to get in touch! </p>
-    <ul>
-      <li>Email me at: 
-        <a href="mailto:ellislannigan2@gmail.com" target="_blank" rel="noopener" class="contact-link">
-          <i class="fas fa-envelope"></i> ellislannigan2@gmail.com
-        </a>
-      </li>
-      <li>Connect with me on: 
-        <a href="https://www.linkedin.com/in/ellis-lannigan-080449357" target="_blank" rel="noopener">
-          <i class="fab fa-linkedin fa-lg"></i> LinkedIn
-        </a>
-      </li>
-    </ul>
-  </div>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Ellis Lannigan. All rights reserved.</p>
-  </footer>
-
-  <button id="dark-mode-toggle">🌙</button>
 
   <script>
-    // Dark Mode Toggle
-    const toggleButton = document.getElementById('dark-mode-toggle');
-    toggleButton.addEventListener('click', function() {
-      document.body.classList.toggle('dark-mode');
-    });
+    function enterSite() {
+      document.getElementById('intro').style.display = 'none';
+      document.getElementById('main').style.display = 'block';
+    }
 
-    // Intro Page Logic
-    const introPage = document.getElementById('intro-page');
-    const mainContent = document.getElementById('main-content');
-    const enterBtn = document.getElementById('enter-btn');
-
-    enterBtn.addEventListener('click', function() {
-      introPage.style.display = 'none';
-      mainContent.style.display = 'block';
-    });
+    function toggleLogs() {
+      const logDiv = document.getElementById('logEntries');
+      logDiv.style.display = logDiv.style.display === 'none' ? 'block' : 'none';
+    }
   </script>
 </body>
 </html>
