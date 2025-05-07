@@ -4,29 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ellis Lannigan | Data Analyst Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary-accent: #f1c1e3;    /* Pale pink */
-      --secondary-accent: #f5d6c1;  /* Peach */
-      --highlight-accent: #a9d6c6;  /* Soft mint */
-      --text-color: #333;           /* Dark text */
-      --bg-color: #fdfaf6;          /* Light cream background */
-      --navbar-bg: #fcefe3;         /* Light peach navbar */
-      --footer-bg: #f4f4f4;        /* Light gray footer */
-      --toggle-bg: #444;            /* Dark toggle button */
-      --toggle-bg-hover: #666;      /* Hover for toggle */
-      --navbar-bg-dark: #3e3b4f;    /* Dark mode navbar */
-      --footer-bg-dark: #3e3b4f;    /* Dark mode footer */
-      --bg-color-dark: #2f2d3d;     /* Dark mode background */
-      --text-color-dark: #eee;      /* Dark mode text */
+      --primary-accent: #d4a5c3;    /* Refined pale pink */
+      --secondary-accent: #f5c7a9;  /* Soft peach */
+      --highlight-accent: #8cc4b0;  /* Muted mint */
+      --text-color: #2d2d2d;        /* Darker, professional text */
+      --bg-color: #f9f9fb;          /* Clean off-white background */
+      --navbar-bg: #ffffff;         /* White navbar for crisp look */
+      --footer-bg: #e8ecef;         /* Subtle gray footer */
+      --toggle-bg: #4a4a4a;         /* Dark toggle button */
+      --toggle-bg-hover: #6b6b6b;   /* Hover for toggle */
+      --navbar-bg-dark: #2a2a3a;    /* Dark mode navbar */
+      --footer-bg-dark: #2a2a3a;    /* Dark mode footer */
+      --bg-color-dark: #1e1e2e;     /* Dark mode background */
+      --text-color-dark: #d9d9d9;   /* Dark mode text */
     }
 
     body {
-      font-family: 'Poppins', 'Lato', sans-serif;
+      font-family: 'Inter', sans-serif;
       margin: 0;
       padding: 0;
       background-color: var(--bg-color);
       color: var(--text-color);
+      line-height: 1.6;
       transition: background-color 0.3s, color 0.3s;
     }
 
@@ -67,7 +69,7 @@
 
     #welcome-text {
       font-size: 2.2em;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Inter', sans-serif;
       color: #fff;
       text-align: center;
       white-space: nowrap;
@@ -84,7 +86,7 @@
 
     #sub-text {
       font-size: 1.3em;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Inter', sans-serif;
       color: #fff;
       margin-top: 15px;
     }
@@ -93,7 +95,7 @@
       margin-top: 25px;
       padding: 12px 28px;
       font-size: 1.1em;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Inter', sans-serif;
       cursor: pointer;
       color: var(--primary-accent);
       background-color: #fff;
@@ -109,20 +111,27 @@
 
     /* Navbar */
     .navbar {
-      text-align: center;
+      position: sticky;
+      top: 0;
       background-color: var(--navbar-bg);
       padding: 15px 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      z-index: 100;
+      text-align: center;
     }
 
     .navbar a {
-      position: relative;
       margin: 0 20px;
-      color: var(--primary-accent);
+      color: var(--text-color);
       font-weight: 600;
       text-decoration: none;
       padding-bottom: 6px;
       display: inline-block;
-      transition: color 0.3s ease, transform 0.3s ease;
+      transition: color 0.3s ease;
+    }
+
+    .navbar a:hover {
+      color: var(--primary-accent);
     }
 
     .navbar a::after {
@@ -131,14 +140,9 @@
       left: 0;
       bottom: 0;
       height: 2px;
-      width: 0%;
-      background-color: var(--secondary-accent);
+      width: 0;
+      background-color: var(--primary-accent);
       transition: width 0.3s ease;
-    }
-
-    .navbar a:hover {
-      color: var(--secondary-accent);
-      transform: scale(1.05);
     }
 
     .navbar a:hover::after {
@@ -147,28 +151,42 @@
 
     /* Containers */
     .container {
-      max-width: 900px;
-      margin: 40px auto;
+      max-width: 1000px;
+      margin: 60px auto;
       padding: 0 20px;
       text-align: left;
     }
 
     h1, h2 {
-      color: var(--primary-accent);
-      font-size: 24px;
-      border-bottom: 2px solid var(--highlight-accent);
-      padding-bottom: 8px;
+      color: var(--text-color);
+      font-weight: 700;
+      font-size: 2rem;
       margin-bottom: 20px;
+      position: relative;
     }
 
-    h1 {
-      font-size: 28px;
+    h1::after, h2::after {
+      content: '';
+      width: 60px;
+      height: 3px;
+      background: var(--primary-accent);
+      display: block;
+      margin-top: 8px;
+    }
+
+    p, li {
+      font-size: 1rem;
+      color: var(--text-color);
     }
 
     a {
       color: var(--primary-accent);
       text-decoration: none;
-      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: var(--secondary-accent);
     }
 
     a i {
@@ -181,29 +199,27 @@
     }
 
     .project-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-start;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 20px;
     }
 
     .project-card {
-      flex: 1 1 calc(33.333% - 40px);
-      margin: 20px 0;
-      border: 1px solid var(--highlight-accent);
-      border-radius: 8px;
+      background: #fff;
+      border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-      transition: transform 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .project-card:hover {
-      transform: translateY(-10px);
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
     }
 
     .project-img {
       width: 100%;
-      height: 150px;
+      height: 180px;
       object-fit: cover;
     }
 
@@ -212,43 +228,45 @@
     }
 
     .project-info h3 {
-      margin-top: 0;
-      font-size: 1.2rem;
-      color: var(--primary-accent);
+      margin: 0 0 10px;
+      font-size: 1.25rem;
+      color: var(--text-color);
+      font-weight: 600;
     }
 
     .project-info p {
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       color: #555;
+      margin: 0 0 10px;
     }
 
     .project-btn {
-      margin-top: 10px;
-      padding: 8px 16px;
+      display: inline-block;
+      padding: 10px 20px;
       background-color: var(--primary-accent);
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
+      color: #fff;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      box-shadow: none;
       transition: background-color 0.3s ease;
     }
 
     .project-btn:hover {
       background-color: var(--secondary-accent);
+      box-shadow: none;
     }
 
     /* Now Section */
     .previous-btn {
-      margin-top: 20px;
-      padding: 8px 16px;
-      background-color: var(--primary-accent);
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
       display: inline-block;
-      text-decoration: none;
+      padding: 10px 20px;
+      background-color: var(--primary-accent);
+      color: #fff;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
     }
 
     .previous-btn:hover {
@@ -256,13 +274,17 @@
     }
 
     /* Footer */
-    footer {
+    footer…) {
       background-color: var(--footer-bg);
       text-align: center;
-      padding: 15px;
-      margin-top: 40px;
-      font-size: 14px;
-      color: #888;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    footer a {
+      margin: 0 10px;
+      font-size: 1rem;
     }
 
     /* Dark Mode */
@@ -273,14 +295,20 @@
 
     body.dark-mode .navbar {
       background-color: var(--navbar-bg-dark);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    body.dark-mode .navbar a {
+      color: var(--text-color-dark);
     }
 
     body.dark-mode footer {
       background-color: var(--footer-bg-dark);
+      color: var(--text-color-dark);
     }
 
     body.dark-mode .project-card {
-      border-color: var(--text-color-dark);
+      background: var(--navbar-bg-dark);
     }
 
     body.dark-mode .project-info p {
@@ -298,6 +326,7 @@
       cursor: pointer;
       font-size: 16px;
       border-radius: 5px;
+      transition: background-color 0.3s ease;
     }
 
     #dark-mode-toggle:hover {
@@ -306,9 +335,36 @@
 
     /* Responsive */
     @media (max-width: 768px) {
+      .container {
+        margin: 40px auto;
+      }
+
       .project-container {
-        flex-direction: column;
-        align-items: flex-start;
+        grid-template-columns: 1fr;
+      }
+
+      h1, h2 {
+        font-size: 1.5rem;
+      }
+
+      .navbar a {
+        margin: 0 10px;
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #welcome-text {
+        font-size: 1.8em;
+      }
+
+      #sub-text {
+        font-size: 1em;
+      }
+
+      #enter-btn {
+        padding: 10px 20px;
+        font-size: 1em;
       }
     }
   </style>
@@ -339,15 +395,15 @@
     <!-- Welcome Section -->
     <div class="container">
       <h1>Welcome to My Portfolio</h1>
-      <p>Hi, I'm Ellis Lannigan, a First Class Mathematics graduate and a future data analyst. Here you'll find my projects and experience.</p>
+      <p>Hi, I'm Ellis Lannigan, a First Class Mathematics graduate and aspiring data analyst. Explore my projects and skills to see how I turn data into actionable insights.</p>
     </div>
 
     <!-- About Me Section -->
     <div class="container" id="about">
       <h2>About Me</h2>
-      <p>Hi, I'm a data enthusiast with a passion for extracting meaningful insights from data. With a background in mathematics and experience in data analysis, I strive to create impactful, data-driven solutions that solve real-world problems.</p>
-      <p>My areas of expertise include statistical analysis, machine learning, data visualization, and data wrangling. I have experience working with a variety of tools and technologies, and I’m always eager to learn more!</p>
-      <p>When I'm not working on data projects, I enjoy exploring new technologies, hiking, and reading about behavioral economics.</p>
+      <p>I’m a data enthusiast with a passion for uncovering insights through statistical analysis and visualization. With a strong foundation in mathematics and hands-on experience in data analysis, I aim to solve complex problems with clear, data-driven solutions.</p>
+      <p>My expertise includes machine learning, data wrangling, and creating impactful visualizations. I’m proficient in Python, SQL, and tools like Tableau, and I’m always eager to expand my skill set.</p>
+      <p>Outside of data, I enjoy hiking, diving into behavioral economics, and staying updated on emerging tech trends.</p>
     </div>
 
     <!-- Skills Section -->
@@ -367,16 +423,16 @@
     <!-- Projects Section -->
     <div class="container" id="projects">
       <h2>My Projects</h2>
-      <p>Here are a few projects that showcase my skills in data analysis:</p>
+      <p>Below are selected projects that demonstrate my data analysis capabilities:</p>
       <div class="project-container">
         <!-- Project 1: GDP vs Happiness Analysis -->
         <div class="project-card">
           <img src="wb_happy-children.jpg" alt="Project 1 Thumbnail" class="project-img">
           <div class="project-info">
             <h3>GDP vs Happiness Analysis</h3>
-            <p>This project analyzes the relationship between GDP and happiness levels across various countries. The analysis explores how economic factors correlate with subjective well-being and aims to provide insights into what truly contributes to happiness.</p>
-            <p><strong>Tools Used:</strong> Python, Pandas, Matplotlib, Seaborn, Jupyter Notebook</p>
-            <p><strong>Key Insights:</strong> The analysis revealed that while wealthier countries tend to report higher happiness scores, there is a diminishing return beyond a certain GDP threshold.</p>
+            <p>Explored the correlation between GDP and happiness scores across countries, analyzing economic factors’ impact on well-being.</p>
+            <p><strong>Tools:</strong> Python, Pandas, Matplotlib, Seaborn, Jupyter Notebook</p>
+            <p><strong>Key Insight:</strong> Wealth correlates with happiness up to a GDP threshold, after which returns diminish.</p>
             <a href="gdp-happiness.pdf" target="_blank">
               <button class="project-btn">View Report (PDF)</button>
             </a>
@@ -388,14 +444,14 @@
     <!-- Now Section -->
     <div class="container" id="now">
       <h2>What I'm Focusing On Now</h2>
-      <p>Here’s what I’m currently learning, exploring, and working on. I update this page regularly to reflect my evolving focus and journey as a data analyst.</p>
+      <p>A snapshot of my current learning and career goals, updated regularly to reflect my growth as a data analyst.</p>
       <h3>🗓️ May 2025</h3>
       <ul>
-        <li>Practicing SQL and data wrangling using sample datasets (e.g., Airbnb, HR analytics).</li>
-        <li>Learning data visualization principles — experimenting with Tableau and Matplotlib.</li>
+        <li>Sharpening SQL and data wrangling with datasets (e.g., Airbnb, HR analytics).</li>
+        <li>Mastering data visualization with Tableau and Matplotlib.</li>
         <li>Applying for entry-level data analyst roles and internships.</li>
-        <li>Reading: *Storytelling with Data* by Cole Nussbaumer Knaflic.</li>
-        <li>Reviewing job descriptions to identify skill gaps.</li>
+        <li>Reading: <em>Storytelling with Data</em> by Cole Nussbaumer Knaflic.</li>
+        <li>Analyzing job descriptions to bridge skill gaps.</li>
       </ul>
       <a href="#previous-entries" class="previous-btn">Previous Entries</a>
     </div>
@@ -403,16 +459,16 @@
     <!-- Contact Section -->
     <div class="container" id="contact">
       <h2>Contact Me</h2>
-      <p>Feel free to get in touch!</p>
+      <p>Let’s connect to discuss data, opportunities, or collaborations!</p>
       <ul>
-        <li>Email me at: 
+        <li>Email: 
           <a href="mailto:ellislannigan2@gmail.com" target="_blank" rel="noopener" class="contact-link">
             <i class="fas fa-envelope"></i> ellislannigan2@gmail.com
           </a>
         </li>
-        <li>Connect with me on: 
+        <li>LinkedIn: 
           <a href="https://www.linkedin.com/in/ellis-lannigan-080449357" target="_blank" rel="noopener">
-            <i class="fab fa-linkedin fa-lg"></i> LinkedIn
+            <i class="fab fa-linkedin fa-lg"></i> Ellis Lannigan
           </a>
         </li>
       </ul>
@@ -421,6 +477,10 @@
     <!-- Footer -->
     <footer>
       <p>© 2025 Ellis Lannigan. All rights reserved.</p>
+      <p>
+        <a href="mailto:ellislannigan2@gmail.com"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/ellis-lannigan-080449357" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </p>
     </footer>
 
     <button id="dark-mode-toggle">🌙</button>
@@ -461,6 +521,16 @@
       const toggleButton = document.getElementById('dark-mode-toggle');
       toggleButton.addEventListener('click', function() {
         document.body.classList.toggle('dark-mode');
+      });
+
+      // Smooth scroll for navbar links
+      document.querySelectorAll('.navbar a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href').substring(1);
+          const targetElement = document.getElementById(targetId);
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+        });
       });
     });
   </script>
