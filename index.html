@@ -429,6 +429,7 @@
 
     /* Footer */
     footer {
+      width: 100vw;
       background-color: var(--footer-bg);
       padding: 20px;
       font-size: 0.9rem;
@@ -439,7 +440,17 @@
       align-items: center;
       text-align: center;
       gap: 10px;
+      box-sizing: border-box;
     }
+
+      .footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
     footer a {
       margin: 0 10px;
@@ -715,11 +726,13 @@
 
     <!-- Footer -->
     <footer>
+      <div class="footer-inner">
       <p>© 2025 Ellis Lannigan. All rights reserved.</p>
       <p>
         <a href="mailto:ellislannigan2@gmail.com"><i class="fas fa-envelope"></i></a>
         <a href="https://www.linkedin.com/in/ellis-lannigan-080449357" target="_blank"><i class="fab fa-linkedin"></i></a>
       </p>
+      </div>
     </footer>
 
     <button id="dark-mode-toggle">🌙</button>
