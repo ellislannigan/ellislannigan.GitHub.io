@@ -127,9 +127,10 @@
       min-height: 60vh;
     }
 
-    /* Nighttime pastel gradient for dark mode */
-body.dark-mode .header-gradient {
-  background: linear-gradient(135deg, #3a4963, #556b8b, #8a9db0); /* calm, pastel blues for night */
+    body.dark-mode .hero {
+  background: linear-gradient(135deg, #3a4963, #556b8b, #8a9db0); /* Calming pastel blues */
+  color: #e0e7ff; /* Soft light text for contrast */
+  transition: background 0.5s ease, color 0.5s ease;
 }
 
     .hero-content {
