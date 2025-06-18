@@ -823,9 +823,31 @@ body.dark-mode .modal-btn {
         }
       });
 
-      backToTop.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
+      function easeInOutQuad(t) {
+  return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+}
+
+function scrollToTop(duration = 700) {
+  const start = window.scrollY;
+  const startTime = performance.now();
+
+  function animate(time) {
+    const elapsed = time - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const ease = easeInOutQuad(progress);
+    window.scrollTo(0, start * (1 - ease));
+    if (progress < 1) {
+      requestAnimationFrame(animate);
+    }
+  }
+
+  requestAnimationFrame(animate);
+}
+
+backToTop.addEventListener('click', (e) => {
+  e.preventDefault();
+  scrollToTop(700); // duration in ms
+});
 
       // Modal functions
       window.openModal = function(id) {
