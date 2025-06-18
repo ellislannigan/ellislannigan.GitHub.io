@@ -535,6 +535,28 @@
       background-color: var(--toggle-bg-hover);
     }
 
+    /* Ensure all basic text is visible in dark mode */
+body.dark-mode p,
+body.dark-mode li,
+body.dark-mode span,
+body.dark-mode a {
+  color: var(--text-color-dark);
+}
+
+/* Background overrides for containers */
+body.dark-mode .container,
+body.dark-mode section {
+  background-color: transparent; /* or a dark shade if you want */
+}
+
+/* Buttons in dark mode */
+body.dark-mode .previous-btn,
+body.dark-mode .cta-btn,
+body.dark-mode .modal-btn {
+  background-color: var(--primary-accent);
+  color: var(--text-color-dark);
+}
+
     /* Responsive */
     @media (max-width: 768px) {
       .hero h1 {
