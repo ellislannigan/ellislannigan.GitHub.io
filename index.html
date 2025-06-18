@@ -518,22 +518,23 @@
     }
 
     #dark-mode-toggle {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      padding: 10px;
-      background-color: var(--toggle-bg);
-      color: #fff;
-      border: none;
-      cursor: pointer;
-      font-size: 16px;
-      border-radius: 50%;
-      transition: background-color 0.3s ease;
-    }
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 0.5rem 1rem;
+  background-color: var(--primary-accent);
+  color: var(--text-color-light);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease;
+}
 
-    #dark-mode-toggle:hover {
-      background-color: var(--toggle-bg-hover);
-    }
+#dark-mode-toggle:hover {
+  background-color: var(--primary-accent-hover);
+}
 
     /* Ensure all basic text is visible in dark mode */
 body.dark-mode p,
